@@ -1,4 +1,4 @@
-export interface PaipRequest {
+export interface Request {
   service: string;
   subject: string;
   args: Array<any>;
@@ -8,7 +8,7 @@ export interface PaipRequest {
   isPaipRequest: boolean;
 }
 
-export interface PaipResponse {
+export interface Response {
   service: string;
   subject: string;
   statusCode: number;
@@ -19,7 +19,7 @@ export interface PaipResponse {
   isPaipRequest: boolean;
 }
 
-export interface PaipNotice {
+export interface Notice {
   service: string;
   subject: string;
   payload: object;
@@ -29,17 +29,17 @@ export interface PaipNotice {
   isPaipNotice: boolean;
 }
 
-export interface PaipServer {
+export interface Server {
   id: string;
   ready(): Promise<any>,
-  expose(subject: string, handler: (request: PaipRequest) => any): void;
-  sendRequest(request: PaipRequest): Promise<PaipResponse>;
-  sendNotice(request: PaipRequest): Promise<void>;
+  expose(subject: string, handler: (request: Request) => any): void;
+  sendRequest(request: Request): Promise<Response>;
+  sendNotice(request: Request): Promise<void>;
   shutdown(): Promise<void>;
   getFullName(): string;
 }
 
-interface PaipOptions {
+interface Options {
   name: string;
   namespace?: string;
   nats?: string | Array<string>;
@@ -47,6 +47,6 @@ interface PaipOptions {
   log?: string;
 }
 
-declare function Paip (options: PaipOptions): PaipServer;
+declare function Paip (options: Options): Server;
 
 export default Paip;
