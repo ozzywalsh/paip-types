@@ -39,7 +39,7 @@ export interface Server {
   getFullName(): string;
 }
 
-interface Options {
+export interface Options {
   name: string;
   namespace?: string;
   nats?: string | Array<string>;
