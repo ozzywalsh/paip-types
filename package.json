@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/ozzywalsh/paip-types/issues"
   },
-  "homepage": "https://github.com/ozzywalsh/paip-types#readme"
+  "homepage": "https://github.com/ozzywalsh/paip-types#readme",
+  "dependencies": {
+    "@types/node": "^12.0.2"
+  }
 }

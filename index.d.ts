@@ -1,3 +1,5 @@
+import { EventEmitter } from "events";
+
 export interface Request {
   service: string;
   subject: string;
@@ -29,7 +31,7 @@ export interface Notice {
   isPaipNotice: boolean;
 }
 
-export interface Server {
+export interface Server extends EventEmitter {
   id: string;
   ready(): Promise<any>,
   expose(subject: string, handler: (request: Request) => any): void;
