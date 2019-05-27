@@ -1,13 +1,12 @@
 import { EventEmitter } from "events";
 
 export interface Request {
-  service: string;
+  service?: string;
   subject: string;
   args: Array<any>;
   metadata?: object;
-  tx: string;
-  time: Date;
-  isPaipRequest: boolean;
+  tx?: string;
+  isPaipRequest?: boolean;
 }
 
 export interface Response {
